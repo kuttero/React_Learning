@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      var NameStateComponent = React.createClass({
+        getInitialState: function() {
+          return {
+            value: 0
+          }
+        },
+        increaseValue: function(increaseValue){
+          this.setState({
+            value: this.state.value + increaseValue
+          })
+        },
+        render: function(){
+          return (
+            <div className="container">
+              <h1>Count: {this.state.value} </h1>
+              <button className="btn blue-btn" onClick={this.increaseValue.bind(this, 1)}>Add 1</button>
+              <button className="btn green-btn" id="bt2" onClick={this.increaseValue.bind(this, 5)}>Add 5</button>
+              <button className="btn purple-btn" id="bt3" onClick={this.increaseValue.bind(this, 10)}>Add 10</button>
+            </div>
+          )
+        }
+      });
+
+
+      ReactDOM.render(
+        <NameStateComponent />,
+        document.getElementById('app')
+      );
+
+    </script>
+  </body>
+</html>

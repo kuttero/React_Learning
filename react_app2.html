@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+    // Global variable
+    // outside of a function
+    var a = 10;
+    function logA() {
+      console.log(a);
+    }
+    logA();
+    console.log(a);
+
+    // inside of a function
+    function logB() {
+      var b = 100;
+      console.log(b)
+    }
+    logB();
+    // var b is inside of a function
+    //, so it doesn't work
+    // console.log(b);
+
+    // Sometimes a problem
+    // with a global variable declaration
+    var c = 99;
+    if (true) {
+      var c = 100;
+      console.log(c);
+    }
+    // Overwrites the variable c
+    //, so c=99 -> c=100
+    console.log(c);
+
+    // blocked statement
+    // of d variable with keyword 'let'
+    if (true) {
+      let d = 100;
+      console.log(d); {
+        console.log(d);
+      }
+    }
+    // outside of a function, so it doesn't work
+    // console.log(d);
+
+    </script>
+  </body>
+</html>
